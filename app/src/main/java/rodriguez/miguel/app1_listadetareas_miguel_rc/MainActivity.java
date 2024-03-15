@@ -52,6 +52,17 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        
+        buttonSelectDeleteTask.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int position = listViewTasks.getCheckedItemPosition();
+                if (position != ListView.INVALID_POSITION) {
+                    taskList.remove(position);
+                    taskAdapter.notifyDataSetChanged();
+                } else {
+                    Toast.makeText(getApplicationContext(), "Selecciona una tarea para eliminar", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
 }
     }
