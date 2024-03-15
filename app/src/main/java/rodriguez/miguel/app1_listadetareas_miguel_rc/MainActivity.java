@@ -40,6 +40,18 @@ public class MainActivity extends AppCompatActivity {
         taskAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, taskList);
         listViewTasks.setAdapter(taskAdapter);
 
+        buttonAddTask.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String task = editTextTask.getText().toString().trim();
+                if (!task.isEmpty()) {
+                    taskList.add(task);
+                    taskAdapter.notifyDataSetChanged();
+                    editTextTask.setText("");
+                }
+            }
+        });
+
         
 }
     }
